@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select a Level"
+        android:textSize="24sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp" />
+
+    <!-- Level Buttons -->
+    <LinearLayout
+        android:id="@+id/levelButtonsLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@id/titleTextView"
+        android:layout_marginTop="30dp"
+        android:gravity="center">
+
+        <!-- Button for Level 1 -->
+        <Button
+            android:id="@+id/level1Button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Level 1"
+            android:layout_margin="10dp" />
+
+        <!-- Button for Level 2 -->
+        <Button
+            android:id="@+id/level2Button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Level 2"
+            android:layout_margin="10dp" />
+
+        <!-- Button for Level 3 -->
+        <Button
+            android:id="@+id/level3Button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Level 3"
+            android:layout_margin="10dp" />
+
+        <!-- Button for Level 4 -->
+        <Button
+            android:id="@+id/level4Button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Level 4"
+            android:layout_margin="10dp" />
+
+        <!-- Button for Level 5 -->
+        <Button
+            android:id="@+id/level5Button"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:text="Level 5"
+            android:layout_margin="10dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/black"> <!-- Background Stadion -->
+
+    <!-- Judul Game dengan Efek Bayangan -->
+    <TextView
+        android:id="@+id/gameTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tebak gambar"
+        android:textSize="36sp"
+        android:textColor="#FFFFFF"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="2"
+        android:shadowDy="2"
+        android:shadowRadius="4" />
+
+    <!-- Gambar Logo Sepak Bola dengan Animasi -->
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_below="@id/gameTitleTextView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/indonesia"
+        android:contentDescription="Football Logo"
+        android:animateLayoutChanges="true"
+        android:scaleType="centerInside" />
+
+    <!-- Tombol Mulai Permainan dengan Gradien -->
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/logoImageView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_gradient"
+        android:elevation="4dp"
+        android:padding="16dp"
+        android:text="Mulai"
+        android:textSize="25sp"
+        android:textColor="@android:color/white"
+        android:textStyle="bold" />
+
+    <!-- Tombol Pengaturan dengan Gradien -->
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Pengaturan"
+        android:layout_below="@id/startButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:padding="16dp"
+        android:background="@drawable/button_gradient"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        android:elevation="4dp"
+        android:layout_marginBottom="20dp"/>
+
+    <!-- Tombol Keluar dengan Gradien -->
+    <Button
+        android:id="@+id/exitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/settingsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/button_gradient"
+        android:elevation="4dp"
+        android:padding="16dp"
+        android:text="Tentang"
+        android:textColor="@android:color/white"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
