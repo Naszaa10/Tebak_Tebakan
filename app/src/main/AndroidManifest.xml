@@ -29,16 +29,12 @@
             android:screenOrientation="portrait" />
 
         <!-- MainActivity declaration -->
-        <activity
-            android:name=".MainActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
+
 
         <!-- GuessingGameActivity declaration -->
-        <activity
-            android:name=".GuessingGameActivity"
-            android:exported="true"
-            android:screenOrientation="portrait" />
+        <activity android:name=".GuessingGameActivity" />
+        <activity android:name=".FlagListActivity" />
+        <activity android:name=".GuessFlagActivity" />
 
     </application>
 

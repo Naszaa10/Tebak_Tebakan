@@ -1,61 +1,69 @@
 package com.nasza.tebaktebak
 
+
+import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+
 
 class GuessingGameActivity : AppCompatActivity() {
 
     private lateinit var flagImageView: ImageView
-    private lateinit var submitButton: Button
-    private lateinit var levelTextView: TextView
     private lateinit var answerEditText: EditText
-    private var currentLevel: Int = 0
+    private lateinit var submitButton: Button
+    private lateinit var statusImageView: ImageView
+    private lateinit var errorImageView: ImageView
+    private lateinit var correctFlag: Flag
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_guessing_game)
 
-        // Get level from intent
-        currentLevel = intent.getIntExtra("LEVEL", 1)
-
-        // Initialize views
         flagImageView = findViewById(R.id.flagImageView)
-        submitButton = findViewById(R.id.submitButton)
-        levelTextView = findViewById(R.id.levelTextView)
         answerEditText = findViewById(R.id.answerEditText)
+        submitButton = findViewById(R.id.submitButton)
+        statusImageView = findViewById(R.id.statusImageView)
+        errorImageView = findViewById(R.id.errorImageView)
 
-        // Set level text
-        levelTextView.text = "Level $currentLevel"
+        val flag = intent.getParcelableExtra<Flag>("FLAG")
 
-        // Load images or logos based on level
-        loadLevelData(currentLevel)
+        if (flag != null) {
+            correctFlag = flag
+            flagImageView.setImageResource(flag.imageResId)
+        } else {
+            Toast.makeText(this, "No flag data found", Toast.LENGTH_SHORT).show()
+            finish()
+        }
 
-        // Handle submit button click
         submitButton.setOnClickListener {
-            val answer = answerEditText.text.toString()
-            checkAnswer(answer)
+            val userAnswer = answerEditText.text.toString().trim()
+            checkAnswer(userAnswer)
         }
     }
 
-    private fun loadLevelData(level: Int) {
-        when (level) {
-            1 -> {
-                // Load image for level 1
-                flagImageView.setImageResource(R.drawable.brazil)  // Example image resource
-            }
-            2 -> {
-                // Load image for level 2
-                flagImageView.setImageResource(R.drawable.indonesia)
-            }
-            // Add more levels as needed
+    private fun checkAnswer(userAnswer: String) {
+        if (userAnswer.equals(correctFlag.country, ignoreCase = true)) {
+            correctFlag.isAnswered = true
+            correctFlag.isCorrect = true.toString()
+            statusImageView.visibility = View.VISIBLE
+            errorImageView.visibility = View.GONE
+            Toast.makeText(this, "Correct!", Toast.LENGTH_SHORT).show()
+        } else {
+            correctFlag.isAnswered = true
+            correctFlag.isCorrect = false.toString()
+            statusImageView.visibility = View.GONE
+            errorImageView.visibility = View.VISIBLE
+            Toast.makeText(this, "Wrong!", Toast.LENGTH_SHORT).show()
         }
-    }
-
-    private fun checkAnswer(answer: String) {
-        // Logic to check the answer and provide feedback to the player
+        val resultIntent = Intent()
+        resultIntent.putExtra("FLAG", correctFlag)
+        setResult(RESULT_OK, resultIntent)
+        finish()
     }
 }
