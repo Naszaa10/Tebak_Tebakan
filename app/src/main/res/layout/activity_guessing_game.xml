@@ -9,22 +9,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
+        android:src="@drawable/brazil"
         android:layout_marginBottom="16dp"
         android:contentDescription="Flag Image" />
 
-    <EditText
-        android:id="@+id/answerEditText"
-        android:layout_width="match_parent"
+    <GridLayout
+        android:id="@+id/answerBoxesLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/flagImageView"
-        android:hint="Enter answer"
-        android:inputType="text" />
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal"
+        android:columnCount="5"
+        android:rowCount="1"
+        android:layout_margin="16dp">
+        <!-- Kotak-kotak akan ditambahkan secara dinamis -->
+    </GridLayout>
+
+    <EditText
+        android:id="@+id/hiddenEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/white"
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/submitButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/answerEditText"
+        android:layout_below="@id/answerBoxesLayout"
         android:layout_centerHorizontal="true"
         android:text="Submit" />
 

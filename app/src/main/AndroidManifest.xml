@@ -31,10 +31,10 @@
         <!-- MainActivity declaration -->
 
 
-        <!-- GuessingGameActivity declaration -->
+        <!-- com.nasza.tebaktebak.GuessingGameActivity declaration -->
         <activity android:name=".GuessingGameActivity" />
         <activity android:name=".FlagListActivity" />
-        <activity android:name=".GuessFlagActivity" />
+
 
     </application>
 

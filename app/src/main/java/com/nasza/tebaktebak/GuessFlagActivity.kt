@@ -20,7 +20,7 @@ class GuessingGameActivity : AppCompatActivity() {
         setContentView(R.layout.activity_guessing_game)
 
         flagImageView = findViewById(R.id.flagImageView)
-        answerEditText = findViewById(R.id.answerEditText)
+        answerEditText = findViewById(R.id.answerBoxesLayout)
         submitButton = findViewById(R.id.submitButton)
 
         // Get the flag object from the intent
